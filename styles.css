@@ -1,0 +1,197 @@
+:root{
+    --main-primary: #959D90;
+    --main-secondary: #fff7f0;
+    --main-tertiary: #EFEFE9;
+    --main-quadary: #523D35;
+    background-color: var(--main-primary)
+}
+;
+
+html{
+    display:flex;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-color: var(--main-primary);
+}
+body {
+    display: flex;
+    background-color: var(--main-secondary);
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    align-items: center;
+    min-height: inherit;
+    width: inherit;
+
+}
+
+.title-overlay-container {
+    position: fixed; /* Keep it visible as the user scrolls */
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: min-content;
+    height: 50vh; /* Start at half the viewport height */
+    background-color: var(--main-primary);
+    color: var(--main-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 7vw;
+    min-height: 90px; /* Prevent it from shrinking too much */
+    transition: height 0.3ms ease-in-out, padding 0.3ms ease-in-out, align-items 0.1s ease-in-out;
+    z-index: 1000; /* Ensures it stays on top */
+}
+
+
+.title-image {
+    transition: width 0.3ms ease-in-out;
+}
+/* Position the image over "Wellness" */
+.title-image {
+    left: 80%; /* Centers horizontally */
+    transform: translate(-45%, -60%); /* Adjusts alignment */
+    top: 25%; /* Adjust this value to position it over "Wellness" */
+    width:100px; /* Adjust size */
+    height: auto;
+    z-index: 2; /* Ensures it stays above text */
+}
+/* The page content should not be hidden under the fixed title */
+.page-body-container {
+    margin-top: 50vh; /* Pushes the content down */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px; /* Prevents content from stretching too wide */
+    min-height: 60vh;
+    background-color: var(--main-secondary);
+    padding: 20px;
+}
+
+
+.about-info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Allow elements to wrap */
+    width: 100%;
+    padding: 20px;
+}
+
+/* Headshot Container Fix */
+.headshot-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column ;
+    justify-content: center;
+    width: 300px; /* Set width explicitly */
+    height: auto;
+    max-width: 900px;
+    background-color: var(--main-primary);
+    padding: 10px;
+    z-index: 3;
+}
+/* Styles for the heading */
+.headshot-heading {
+    font-size: 3vw; /* Adjust based on preference */
+    color: var(--main-tertiary);
+    margin-bottom: 10px; /* Adds space between the heading and the image */
+    text-align: center;
+    z-index: 3;
+}
+.headshot {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    z-index: 3;
+}
+
+
+.decorative-image-container {
+    position: absolute;
+    left: 0; /* Anchors it to the left edge */
+    bottom: -50vh; /* Adjust this to place it under the headshot but above socials */
+    z-index: 2; /* Ensures it stays above the socials but below other content */
+}
+
+.decorative-image {
+    width: 50vw; /* Adjust width as needed */
+    height: auto; /* Maintains aspect ratio */
+    transform: translateX(-10%); /* Makes part of it protrude from the page edge */
+}
+
+.decorative-image-container-reversed {
+    position: absolute;
+    right: 0; /* Anchors it to the left edge */
+    bottom: 20vh; /* Adjust this to place it under the headshot but above socials */
+    z-index: 2; /* Ensures it stays above the socials but below other content */
+}
+.decorative-image-reversed {
+    width: 50vw; /* Adjust width as needed */
+    height: auto; /* Maintains aspect ratio */
+    transform: translateX(10%) rotateY(180deg); /* Makes part of it protrude from the page edge */
+}
+
+
+.modalities-link{
+    background-color: var(--main-secondary);
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-around;
+    align-items: center;
+    color: var(--main-quadary);
+}
+.modalities{
+    font-size: 3vw;
+    tab-size: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
+    width: fit-content;
+}
+
+/* Socials - Prevent Overlapping */
+.other-stuff {
+    display: flex; 
+    position:static;
+    bottom: 0;
+    background-color: var(--main-primary);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: max-content;
+    padding: 10px;
+    z-index: 3;
+}
+
+.socials {
+    display: flex;
+    height: 50px;
+    width: 50px;
+}
+
+.info-container{
+    display: flex;
+    color: var(--main-quadary);
+    justify-content: center ;
+    width: 300px;
+    height: fit-content;
+    text-wrap: wrap;
+}
+.info-text{
+    z-index: 3;
+    display: flex;
+    font-size: 3vw;
+    height: fit-content;
+    background-color: var(--main-secondary);
+    outline: 2px solid var(--main-primary);
+}
