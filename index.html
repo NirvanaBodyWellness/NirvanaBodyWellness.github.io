@@ -3,50 +3,67 @@
         <title>Nirvana Body Wellness</title>
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    </head>  
+    </head>
     <body>
-        <div class="title-overlay-container">
-            Nirvana Body Wellness
-            <img class="title-image" src="assets/leafs.png" alt="Decoration">
-        </div>        
-        <div class="page-body-container">
-            <div class="decorative-image-container-reversed">
-                <img class="decorative-image-reversed" src="assets/branch.png" alt="Decorative PNG">
+        <nav class="navbar">
+            <a class="nav-brand" href="index.html">Nirvana Body Wellness</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#modalities">Services</a></li>
+                <li><a href="schedule.html">Book Now</a></li>
+            </ul>
+        </nav>
+
+        <section class="hero">
+            <img class="hero-leaf" src="assets/leafs.png" alt="Leaf decoration">
+            <h1 class="hero-title">Nirvana Body Wellness</h1>
+            <p class="hero-subtitle">Massage Therapy &bull; Richmond, VA</p>
+        </section>
+
+        <section class="about" id="about">
+            <div class="headshot-container">
+                <img class="headshot" src="assets/marapic.jpg" alt="Mara, Licensed Massage Therapist">
             </div>
-            <div class="about-info">
-                <div class="left-about">
-                    <div class="headshot-container">
-                        <h3 class="headshot-heading">Mara</h3>
-                        <img class="headshot" src="assets/marapic.jpg">
-                    </div>
-                </div>
-                <div class="info-container"><p class="info-text">
-                    THIS IS INFO ABOUT MARA AS A MASSAGE THERAPIST. 
-                    Shes awesome, she is a master at her craft at 
-                    only 1 year of work. She is a menace to knots</p></div>
+            <div class="about-text">
+                <h2>Meet Mara</h2>
+                <p>
+                    THIS IS INFO ABOUT MARA AS A MASSAGE THERAPIST.
+                    Shes awesome, she is a master at her craft at
+                    only 1 year of work. She is a menace to knots
+                </p>
             </div>
-            <div class="modalities-link">
-                <div class="modalities">
-                        <h1>Modalities</h1>
-                        <ul style="list-style-type:circle; font-size: 3vw;">
-                          <li>Therapuetic Massage</li>
-                          <li>Hot Stone Massage</li>
-                          <li>Prenatal Massage</li>
-                        </ul>
+        </section>
+
+        <div class="divider"></div>
+
+        <section class="modalities-section" id="modalities">
+            <h2>Modalities</h2>
+            <div class="modalities-grid">
+                <div class="modality-card">
+                    <h3>Therapeutic Massage</h3>
                 </div>
-                <div class="modalities">
-                    <h1>Schedule a Session</h1>
-                    Want to schedule a session? <a href="https://www.google.com/"><p>CLICK HERE!</p></a>
+                <div class="modality-card">
+                    <h3>Hot Stone Massage</h3>
+                </div>
+                <div class="modality-card">
+                    <h3>Prenatal Massage</h3>
                 </div>
             </div>
-        </div>
-        <div class="decorative-image-container">
-            <img class="decorative-image" src="assets/branch.png" alt="Decorative PNG">
-        </div>
-        <div class="other-stuff">
-            <p>FOLLOW MY BUSINESS INSTAGRAM</p>
-            <a class="socials" href="https://www.instagram.com/mara.o_lmt.rva/"><img src="assets/instagram.png"></a>
-        </div>
-        <script src="script.js"></script>
+        </section>
+
+        <section class="cta-section">
+            <h2>Schedule a Session</h2>
+            <p>Ready to feel your best? Book an appointment with Mara today.</p>
+            <a class="btn btn-primary" href="schedule.html">Book an Appointment</a>
+        </section>
+
+        <footer class="footer">
+            <p>Follow along</p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/mara.o_lmt.rva/" aria-label="Instagram">
+                    <img src="assets/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </footer>
     </body>
 </html>
