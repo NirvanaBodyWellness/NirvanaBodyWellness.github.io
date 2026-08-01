@@ -1,0 +1,53 @@
+name: Update Google Rating
+
+on:
+  schedule:
+    - cron: '0 12 * * *'  # Runs daily at noon UTC
+  workflow_dispatch:        # Allows manual trigger from GitHub
+
+jobs:
+  update-rating:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch Google rating
+        run: |
+          RESPONSE=$(curl -s "https://places.googleapis.com/v1/places/${{ secrets.GOOGLE_PLACE_ID }}?fields=rating,userRatingCount" \
+            -H "X-Goog-Api-Key: ${{ secrets.GOOGLE_API_KEY }}")
+
+          RATING=$(echo "$RESPONSE" | jq -r '.rating // empty')
+          COUNT=$(echo "$RESPONSE" | jq -r '.userRatingCount // empty')
+
+          if [ -z "$RATING" ]; then
+            echo "Failed to fetch rating. API response:"
+            echo "$RESPONSE"
+            exit 1
+          fi
+
+          TODAY=$(date -u +"%Y-%m-%d")
+
+          cat > rating.json << EOF
+          {
+            "rating": $RATING,
+            "totalReviews": $COUNT,
+            "updatedAt": "$TODAY"
+          }
+          EOF
+
+          # Clean up leading whitespace from heredoc
+          sed -i 's/^          //' rating.json
+
+          echo "Rating: $RATING ($COUNT reviews)"
+
+      - name: Commit updated rating
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add rating.json
+          git diff --cached --quiet && echo "No changes" && exit 0
+          git commit -m "Update Google rating"
+          git push

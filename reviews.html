@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Reviews - Nirvana Body Wellness</title>
+        <link rel="stylesheet" href="styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <nav class="navbar">
+            <a class="nav-brand" href="index.html">Nirvana Body Wellness</a>
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#modalities">Services</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="schedule.html">Book Now</a></li>
+            </ul>
+        </nav>
+
+        <section class="schedule-hero">
+            <h1>Client Reviews</h1>
+        </section>
+
+        <section class="rating-section">
+            <div class="rating-badge">
+                <img class="google-icon" src="https://www.google.com/favicon.ico" alt="Google">
+                <div class="rating-details">
+                    <div class="rating-number" id="rating-number">--</div>
+                    <div class="rating-stars" id="rating-stars"></div>
+                    <p class="rating-count" id="rating-count">Loading...</p>
+                </div>
+            </div>
+            <a class="btn btn-outline" href="https://search.google.com/local/reviews?placeid=ChIJ0WiVnGG2j4ARueZGppdiTNQ" target="_blank" rel="noopener"> <!-- TODO: Update URL with actual Google Reviews link -->
+                Read Reviews on Google
+            </a>
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Experience It Yourself?</h2>
+            <a class="btn btn-primary" href="schedule.html">Book an Appointment</a>
+        </section>
+
+        <footer class="footer">
+            <p>Follow along</p>
+            <div class="footer-socials">
+                <a href="https://www.instagram.com/mara.o_lmt.rva/" aria-label="Instagram">
+                    <img src="assets/instagram.png" alt="Instagram">
+                </a>
+            </div>
+        </footer>
+
+        <script>
+            function renderStars(rating) {
+                var fullStars = Math.floor(rating);
+                var halfStar = rating % 1 >= 0.5;
+                var html = '';
+                for (var i = 0; i < fullStars; i++) html += '&#9733;';
+                if (halfStar) html += '&#9733;';
+                for (var i = (fullStars + (halfStar ? 1 : 0)); i < 5; i++) html += '&#9734;';
+                return html;
+            }
+
+            fetch('rating.json')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    document.getElementById('rating-number').textContent = data.rating.toFixed(1);
+                    document.getElementById('rating-stars').innerHTML = renderStars(data.rating);
+
+                    var countText = data.totalReviews > 0
+                        ? data.totalReviews + ' Google Reviews'
+                        : 'Google Reviews';
+                    document.getElementById('rating-count').textContent = countText;
+                })
+                .catch(function() {
+                    document.getElementById('rating-number').textContent = '5.0';
+                    document.getElementById('rating-stars').innerHTML = '&#9733;&#9733;&#9733;&#9733;&#9733;';
+                    document.getElementById('rating-count').textContent = 'Google Reviews';
+                });
+        </script>
+    </body>
+</html>

@@ -342,6 +342,72 @@ body {
     margin-bottom: 24px;
 }
 
+/* ===== Rating Section ===== */
+
+.rating-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 60px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.rating-badge {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    background-color: var(--main-tertiary);
+    padding: 36px 48px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(82, 61, 53, 0.1);
+}
+
+.google-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.rating-details {
+    text-align: center;
+}
+
+.rating-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--main-quadary);
+    line-height: 1;
+}
+
+.rating-stars {
+    font-size: 1.5rem;
+    color: #d4a94b;
+    letter-spacing: 3px;
+    margin: 8px 0;
+}
+
+.rating-count {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--main-quadary);
+    opacity: 0.6;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: var(--main-quadary);
+    border: 2px solid var(--main-quadary);
+}
+
+.btn-outline:hover {
+    background-color: var(--main-quadary);
+    color: var(--main-secondary);
+}
+
 /* ===== Responsive ===== */
 
 @media (max-width: 768px) {
